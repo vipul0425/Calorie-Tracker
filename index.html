@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Materialize Css-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Font Awesome Icons-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+  <!-- Custom Style -->
+  <style>
+    .input-field label {
+      color: #212121;
+      font-size: 1.2em;
+    }
+
+    .input-field input[type=text]:focus+label {
+      color: #8e24aa !important;
+    }
+
+    .input-field input[type=text]:focus {
+      border-bottom: 1px solid #8e24aa !important;
+      box-shadow: 0 1px 0 0 #8e24aa !important;
+    }
+    .input-field input[type=number]:focus+label {
+      color: #8e24aa !important;
+    }
+
+    .input-field input[type=number]:focus {
+      border-bottom: 1px solid #8e24aa !important;
+      box-shadow: 0 1px 0 0 #8e24aa !important;
+    }
+
+    .input-field input[type=text],input[type=number] {
+      border-bottom: 1px solid #000 !important;
+    }
+
+    .collection {
+      border: 0;
+    }
+
+    .collection-item {
+      background-color: #8e24aa !important;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body class="grey darken-4">
+
+  <!-- Navbar-->
+
+  <nav>
+    <div class="nav-wrapper purple darken-1">
+      <a href="#" class="brand-logo center">Calorie Tracker</a>
+      <ul class="right">
+        <li><a class="waves-effect waves-purple purple lighten-2 btn" id="clear-btn"><strong>Clear All</strong></a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <div class="container">
+
+    <!-- Form Card-->
+
+    <div class="card purple lighten-2 z-depth-2">
+      <div class="card-content">
+        <div class="card-title"><b>Add Meal / Food Item</b></div>
+        <form class="col">
+          <div class="row">
+            <div class="input-field col s6">
+              <input type="text" placeholder="Add Meal" id="add-meal" class="white-text">
+              <label for="add-meal">Meal</label>
+            </div>
+            <div class="input-field col s6 ">
+              <input type="number" placeholder="Approx. Calories" id="add-calories" class="white-text" min="0">
+              <label for="add-calories">Calories</label>
+            </div>
+          </div>
+        </form>
+        <button class="btn waves-effect waves-deep-purple purple darken-1" id="add-btn"><i class="fas fa-plus"></i> Add
+          Meal</button>
+
+        <!-- update Button -->
+
+        <button class="btn waves-effect waves-deep-purple purple darken-1" id="update-btn"><i class="fas fa-edit"></i> Update Meal</button>
+
+        <button class="btn waves-effect waves-deep-purple purple darken-1" id="delete-btn"><i class="fas fa-trash"></i> Delete Meal</button> 
+       
+
+
+        <button class="btn waves-effect waves-deep-purple purple lighten-3 right" id="back-btn"><i
+            class="fas fa-chevron-left"></i> Back</button>
+      </div>
+    </div>
+
+    <!-- list Card  -->
+
+    <div class="card purple lighten-4 z-depth-2">
+      <div class="card-content">
+        <h5 class="center">Total Calories : <span id="total-calories">0</span></h5>
+        <ul class="collection" id="item-list">
+
+        </ul>
+      </div>
+    </div>
+
+
+  </div>
+  <!-- Materialize JavaScript-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- My Script -->
+  <script src="app.js"></script>
+
+</body>
+
+</html>
