@@ -29,7 +29,7 @@ const StorageCtrl = function(){
        items = JSON.parse(localStorage.getItem('items'));
        items.forEach((item,index)=>{
            if (item.id === updatedItem.id) {
-               items.splice(1,index,updatedItem);
+               items.splice(index,1,updatedItem);
            }
        })
        localStorage.setItem('items',JSON.stringify(items));
@@ -39,7 +39,7 @@ const StorageCtrl = function(){
        items = JSON.parse(localStorage.getItem('items'));
        items.forEach((item,index)=>{
            if (item.id === id) {
-               items.splice(1,index);
+               items.splice(index,1);
            }
        })
        localStorage.setItem('items',JSON.stringify(items));
@@ -193,7 +193,7 @@ const UICtrl = function () {
             li.id = `item-${item.id}`;
             li.innerHTML = `<strong>${item.name} :</strong> <em> ${item.calories} Kacl</em>
             <a href="#" class="secondary-content"><i class="fas fa-edit white-text edit-item"></i></a>`
-            document.querySelector(uiSelectors.itemList).insertAdjacentElement('afterbegin', li);
+            document.querySelector(uiSelectors.itemList).insertAdjacentElement('beforeend', li);
 
         },
         // update list in ui
