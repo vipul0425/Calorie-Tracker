@@ -34,6 +34,11 @@
   color: #fff;
 }
 
+.timestamp {
+  color: burlywood;
+  padding-left: 20px;
+}
+
 @media only screen and (max-width: 600px) {
   .brand-logo {
     text-align: left !important;
