@@ -1,0 +1,58 @@
+@import "Variables";
+
+
+.input-field {
+    label {
+        color: $Dark_Text_Color;
+        font-size: 1.2em;
+    }
+
+    input {
+        border-bottom: 1px solid #000 !important;
+
+        &[type=text]:focus {
+            border-bottom: 1px solid $Primary_Color !important;
+            box-shadow: 0 1px 0 0 $Primary_Color !important;
+
+            &+label {
+                color: $Primary_Color !important;
+            }
+        }
+
+        &[type=number]:focus {
+            border-bottom: 1px solid $Primary_Color !important;
+            box-shadow: 0 1px 0 0 $Primary_Color !important;
+
+            &+label {
+                color: $Primary_Color !important;
+            }
+        }
+    }
+}
+
+.collection {
+    border: 0;
+
+    &-item{
+        background-color: $Primary_Color !important;
+        color: #fff;
+    }
+}
+
+.timestamp {
+    color: burlywood;
+    padding-left: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .brand-logo {
+        text-align: left !important;
+        left: 5% !important;
+        transform: translateX(0) !important;
+    }
+
+    #update-btn {
+        margin-bottom: 10px;
+    }
+
+}
