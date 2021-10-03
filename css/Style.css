@@ -1,0 +1,47 @@
+.input-field label {
+  color: #212121;
+  font-size: 1.2em;
+}
+
+.input-field input {
+  border-bottom: 1px solid #000 !important;
+}
+
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #8e24aa !important;
+  box-shadow: 0 1px 0 0 #8e24aa !important;
+}
+
+.input-field input[type=text]:focus + label {
+  color: #8e24aa !important;
+}
+
+.input-field input[type=number]:focus {
+  border-bottom: 1px solid #8e24aa !important;
+  box-shadow: 0 1px 0 0 #8e24aa !important;
+}
+
+.input-field input[type=number]:focus + label {
+  color: #8e24aa !important;
+}
+
+.collection {
+  border: 0;
+}
+
+.collection-item {
+  background-color: #8e24aa !important;
+  color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+  .brand-logo {
+    text-align: left !important;
+    left: 5% !important;
+    transform: translateX(0) !important;
+  }
+  #update-btn {
+    margin-bottom: 10px;
+  }
+}
+/*# sourceMappingURL=Style.css.map */
