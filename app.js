@@ -57,10 +57,11 @@ const StorageCtrl = function(){
 const ItemCtrl = function () {
 
     // Item Constructor
-    const Item = function (id, name, calories) {
+    const Item = function (id, name, calories, timeStamp) {
         this.id = id;
         this.name = name;
         this.calories = calories;
+        this.timeStamp = timeStamp
     }
 
     // Define Data Structure
@@ -73,6 +74,9 @@ const ItemCtrl = function () {
         // Add meal Function
         addMeal: function (meal, calories) {
 
+            //get Date and Time
+            let timeStamp = new Date().toLocaleString();
+
             // making id for meals
             let id;
             if (data.items.length > 0) {
@@ -83,7 +87,7 @@ const ItemCtrl = function () {
                 id = 0;
             }
             //init a new item Constructor
-            newItem = new Item(id, meal, parseInt(calories));
+            newItem = new Item(id, meal, parseInt(calories), timeStamp);
             //pushing into array
             data.items.push(newItem);
 
@@ -179,7 +183,7 @@ const UICtrl = function () {
 
             let output = '';
             items.forEach(item => {
-                output += `<li class="collection-item" id="item-${item.id}"><strong>${item.name} :</strong> <em> ${item.calories} Kacl</em>
+                output += `<li class="collection-item" id="item-${item.id}"><strong>${item.name} :</strong> <em> ${item.calories} Kacl</em><span class="timestamp">${item.timeStamp}</span>
               <a href="#" class="secondary-content"><i class="fas fa-edit white-text edit-item"></i></a>
             </li>`
             });
@@ -191,7 +195,7 @@ const UICtrl = function () {
             const li = document.createElement('li');
             li.className = 'collection-item';
             li.id = `item-${item.id}`;
-            li.innerHTML = `<strong>${item.name} :</strong> <em> ${item.calories} Kacl</em>
+            li.innerHTML = `<strong>${item.name} :</strong> <em> ${item.calories} Kacl</em><span class="timestamp">${item.timeStamp}</span>
             <a href="#" class="secondary-content"><i class="fas fa-edit white-text edit-item"></i></a>`
             document.querySelector(uiSelectors.itemList).insertAdjacentElement('beforeend', li);
 
