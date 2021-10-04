@@ -38,6 +38,17 @@
         color: #fff;
     }
 }
+#clear-btn {
+    margin-right: 1.5rem;
+}
+#add-meal, #add-calories {
+    margin-top: 1rem;
+}
+
+.btn:focus-visible  {
+    outline: 1px solid white;
+    border: 1px solid blue;
+}
 
 .timestamp {
     color: burlywood;
