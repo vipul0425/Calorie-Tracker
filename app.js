@@ -1,5 +1,3 @@
-// storage Controller
-
 const StorageCtrl = function(){
     return {
      storeItem: function(item){
@@ -286,13 +284,14 @@ const AppCtrl = function (ItemCtrl, StorageCtrl, UICtrl) {
     }
 
     // Add Items Function
-    function addItems(e) {
+    async function addItems(e) {
         const meal = document.querySelector(UICtrl.getUiSelectors().mealInput);
         const calories = document.querySelector(UICtrl.getUiSelectors().caloriesInput);
 
         // ADD ITEMS 
-        if (meal.value !== '' && calories.value !== '') {
-            const newItem = ItemCtrl.addMeal(meal.value, calories.value);
+        if (meal.value !== '') {
+            const fetchedCalories = await fetchCalories(meal.value);
+            const newItem = ItemCtrl.addMeal(meal.value, fetchedCalories);
 
             // add this item into ui
             UICtrl.addListItem(newItem);
@@ -308,6 +307,25 @@ const AppCtrl = function (ItemCtrl, StorageCtrl, UICtrl) {
 
 
         e.preventDefault();
+    }
+
+    // Fetch Calories Function
+    async function fetchCalories(meal) {
+        const apiKey = 'YOUR_API_KEY';
+        const apiId = 'YOUR_API_ID';
+        const response = await fetch(`https://trackapi.nutritionix.com/v2/natural/nutrients`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-app-id': apiId,
+                'x-app-key': apiKey
+            },
+            body: JSON.stringify({
+                query: meal
+            })
+        });
+        const data = await response.json();
+        return data.foods[0].nf_calories;
     }
 
     //Enable Edit State
